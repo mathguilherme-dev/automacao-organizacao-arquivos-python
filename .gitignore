@@ -1,0 +1,52 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+
+# Testes
+.pytest_cache/
+.coverage
+htmlcov/
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# Logs
+*.log
+organizer.log
+
+# Sistema
+.DS_Store
+Thumbs.db
+
+# Pasta de teste
+test_workspace/
+test_dir/
+
+# PyInstaller build
+specs/
+
+# Config customizado (se usar)
+config_*.json
+!config.json

@@ -1,0 +1,84 @@
+{
+  "categories": {
+    "Imagens": {
+      "extensions": [".jpg", ".jpeg", ".png", ".gif", ".bmp", ".svg", ".ico"],
+      "create_if_missing": true
+    },
+    "Documentos": {
+      "extensions": [".pdf", ".txt", ".docx", ".xlsx", ".pptx", ".odt"],
+      "create_if_missing": true
+    },
+    "Planilhas": {
+      "extensions": [".csv", ".xlsm"],
+      "create_if_missing": true
+    },
+    "Videos": {
+      "extensions": [".mp4", ".avi", ".mkv", ".mov", ".flv"],
+      "create_if_missing": true
+    },
+    "Audio": {
+      "extensions": [".mp3", ".wav", ".flac", ".aac", ".m4a"],
+      "create_if_missing": true
+    },
+    "Compactados": {
+      "extensions": [".zip", ".rar", ".7z", ".tar", ".gz"],
+      "create_if_missing": true
+    },
+    "Executáveis": {
+      "extensions": [".exe", ".msi", ".app", ".deb", ".apk"],
+      "create_if_missing": true
+    },
+    "Código": {
+      "extensions": [
+        ".py",
+        ".js",
+        ".java",
+        ".cpp",
+        ".c",
+        ".ts",
+        ".go",
+        ".rb",
+        ".php",
+        ".html",
+        ".css"
+      ],
+      "create_if_missing": true
+    },
+    "Dados": {
+      "extensions": [
+        ".json",
+        ".xml",
+        ".sql",
+        ".db",
+        ".yml",
+        ".yaml",
+        ".ini",
+        ".conf"
+      ],
+      "create_if_missing": true
+    },
+    "Fontes": {
+      "extensions": [".ttf", ".otf", ".woff", ".woff2"],
+      "create_if_missing": true
+    },
+    "Discos": {
+      "extensions": [".iso", ".dmg", ".img"],
+      "create_if_missing": true
+    },
+    "Outros": {
+      "extensions": [".exe", ".msi", ".winmd", ".dll", ".sys"],
+      "create_if_missing": true
+    }
+  },
+  "logging": {
+    "enabled": true,
+    "console_enabled": true,
+    "level": "INFO",
+    "log_file": "organizer.log"
+  },
+  "options": {
+    "handle_duplicates": "rename",
+    "preserve_source": false,
+    "ask_on_overwrite": false
+  }
+}
