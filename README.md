@@ -1,24 +1,26 @@
 # 🗂️ Automação de Organização de Arquivos em Python
 
-Um sistema modular, robusto e pronto para produção que automatiza a organização de arquivos em pastas por tipo de extensão. Pode ser empacotado como executável (.exe) para usar em qualquer computador.
+Um sistema modular, robusto e pronto para produção que automatiza a organização de arquivos em pastas por tipo de extensão. Pode ser empacotado como executável (.exe) para usar em qualquer computador sem dependências Python.
 
-## 📌 Características
+## 📌 Características Principais
 
-✅ **Modular e Organizado** - Código separado em componentes (config, logger, organizer, cli)  
-✅ **Configurável** - Arquivo `config.json` define categorias e extensões  
-✅ **Tratamento de Duplicados** - 3 estratégias: skip, rename, overwrite  
-✅ **Logging Completo** - Arquivo de log + console output  
-✅ **Modo Simulação** - Testar com `--dry-run` antes de executar  
-✅ **Modo Verbose** - Flag `-v` para ver todos os detalhes  
-✅ **Interface CLI** - Fácil de usar via linha de comando  
-✅ **Testes Automáticos** - Suite completa de testes unitários  
-✅ **Empacotável** - Gera executável .exe com PyInstaller  
+✅ **Arquitetura Modular** - Componentes bem separados: `config`, `organizer`, `cli`, `utils`  
+✅ **Totalmente Configurável** - Arquivo `config.json` com categorias e extensões personalizáveis  
+✅ **3 Estratégias de Duplicados** - Skip (pula), Rename (renomeia), Overwrite (sobrescreve)  
+✅ **Sistema de Logging Robusto** - Logs em arquivo + console com níveis configuráveis  
+✅ **Modo Simulação (Dry-Run)** - Teste operações sem realmente mover arquivos  
+✅ **Modo Verbose** - Visualize todos os detalhes da execução  
+✅ **Interface CLI Intuitiva** - Fácil de usar via linha de comando  
+✅ **Cobertura de Testes** - Suite completa com testes unitários para todas as funcionalidades  
+✅ **Empacotamento Executável** - Gera `.exe` pronto para usar em qualquer Windows  
+✅ **Tratamento de Erros Completo** - Permissões, caminhos inválidos, caracteres especiais  
 
-## ⚙️ Tecnologias Utilizadas
+## 🛠️ Tecnologias Utilizadas
 
-- **Python 3.8+**
-- **Bibliotecas padrão**: `pathlib`, `shutil`, `logging`, `argparse`, `json`
-- **PyInstaller** - para gerar executável (.exe)
+- **Python 3.8+** - Linguagem base do projeto
+- **Bibliotecas Padrão**: `pathlib`, `shutil`, `logging`, `argparse`, `json`, `re`
+- **PyInstaller** - Empacotamento em executável (.exe)
+- **Pytest/Unittest** - Testes automáticos
 
 ## 🚀 Como Usar
 
