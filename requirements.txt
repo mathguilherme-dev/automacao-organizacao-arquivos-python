@@ -1,12 +1,13 @@
 # Dependências do Organizador de Arquivos
 # Instale com: pip install -r requirements.txt
 
-# Para desenvolvimento e empacotamento
+# Para empacotamento
 pyinstaller>=5.0
 
-# Opcional: Para testes com pytest
+# Para testes (pytest é recomendado em vez de unittest)
 pytest>=7.0
 pytest-cov>=4.0
 
-# Nota: As bibliotecas padrão do Python (os, shutil, logging, argparse, json, pathlib)
+# Nota: As bibliotecas padrão do Python (os, shutil, logging, argparse, json, pathlib, tkinter)
 # já vêm incluídas, então não precisam ser listadas aqui.
+
