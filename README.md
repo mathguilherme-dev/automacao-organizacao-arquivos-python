@@ -13,7 +13,7 @@ Um sistema modular, robusto e pronto para produção que automatiza a organizaç
 ✅ **Interface CLI Intuitiva** - Fácil de usar via linha de comando  
 ✅ **Cobertura de Testes** - Suite completa com testes unitários para todas as funcionalidades  
 ✅ **Empacotamento Executável** - Gera `.exe` pronto para usar em qualquer Windows  
-✅ **Tratamento de Erros Completo** - Permissões, caminhos inválidos, caracteres especiais  
+✅ **Tratamento de Erros Completo** - Permissões, caminhos inválidos, caracteres especiais
 
 ## 🛠️ Tecnologias Utilizadas
 
@@ -58,10 +58,13 @@ organizador.exe ./arquivos --verbose
 ## 📖 Exemplos Práticos
 
 ### **Exemplo 1: Organizar pasta com simulação**
+
 ```bash
 python -m organizador C:\Users\User\Downloads --dry-run
 ```
+
 Resultado na tela:
+
 ```
 [INFO] 🚀 Iniciando organização (modo: SIMULAÇÃO)
 [INFO] 📁 Pasta de origem: C:\Users\User\Downloads
@@ -71,10 +74,13 @@ Resultado na tela:
 ```
 
 ### **Exemplo 2: Organizar com modo detalhado**
+
 ```bash
 python -m organizador C:\Users\User\Downloads --verbose
 ```
+
 Resultado:
+
 ```
 [DEBUG] Logger configurado em nível DEBUG
 [INFO] 🚀 Iniciando organização (modo: NORMAL)
@@ -85,7 +91,9 @@ Resultado:
 ```
 
 ### **Exemplo 3: Tratar duplicados com rename**
+
 Editar `config.json`:
+
 ```json
 {
   "options": {
@@ -95,6 +103,7 @@ Editar `config.json`:
 ```
 
 Resultado ao organizar:
+
 ```
 [INFO] ✅ Movido: photo.jpg → Imagens/
 [INFO] 📝 Renomeado: photo.jpg → photo_1.jpg
@@ -102,6 +111,7 @@ Resultado ao organizar:
 ```
 
 ### **Exemplo 4: Usar estratégia overwrite**
+
 ```json
 {
   "options": {
@@ -166,14 +176,14 @@ O arquivo `config.json` controla o comportamento do programa:
 
 ### **Parâmetros Explicados**
 
-| Parâmetro | Valores | Descrição |
-|-----------|---------|-----------|
-| `extensions` | `[".jpg", ".png"]` | Extensões que pertencen à categoria |
-| `create_if_missing` | `true/false` | Criar pasta se não existir |
-| `console_enabled` | `true/false` | Exibir logs no console |
-| `level` | `DEBUG/INFO/WARNING/ERROR` | Nível de detalhe |
-| `log_file` | `"organizer.log"` | Arquivo para salvar logs |
-| `handle_duplicates` | `skip/rename/overwrite` | Estratégia para arquivos duplicados |
+| Parâmetro           | Valores                    | Descrição                           |
+| ------------------- | -------------------------- | ----------------------------------- |
+| `extensions`        | `[".jpg", ".png"]`         | Extensões que pertencen à categoria |
+| `create_if_missing` | `true/false`               | Criar pasta se não existir          |
+| `console_enabled`   | `true/false`               | Exibir logs no console              |
+| `level`             | `DEBUG/INFO/WARNING/ERROR` | Nível de detalhe                    |
+| `log_file`          | `"organizer.log"`          | Arquivo para salvar logs            |
+| `handle_duplicates` | `skip/rename/overwrite`    | Estratégia para arquivos duplicados |
 
 ## 🧪 Executar Testes
 
@@ -189,6 +199,7 @@ python -m unittest organizador.tests.test_organizer.TestFileOrganizer.test_organ
 ```
 
 **Testes Inclusos:**
+
 1. ✅ Organizar arquivos básicos
 2. ✅ Modo dry-run (simulação)
 3. ✅ Duplicados - estratégia SKIP
@@ -202,11 +213,13 @@ python -m unittest organizador.tests.test_organizer.TestFileOrganizer.test_organ
 ## 📦 Empacotamento como Executável (.exe)
 
 ### **Passo 1: Instalar PyInstaller**
+
 ```bash
 pip install pyinstaller
 ```
 
 ### **Passo 2: Gerar .exe (uma arquivo)**
+
 ```bash
 pyinstaller --onefile --console --name organizador ^
   --add-data "organizador/config.json:organizador" ^
@@ -215,6 +228,7 @@ pyinstaller --onefile --console --name organizador ^
 ```
 
 ### **Passo 3: Usar o executável**
+
 ```bash
 # No Windows
 dist\organizador.exe C:\Users\User\Downloads --verbose
@@ -223,6 +237,7 @@ dist\organizador.exe C:\Users\User\Downloads --verbose
 ```
 
 **Resultado:**
+
 - `dist/organizador.exe` - Executável pronto para usar
 - Pode rodar em qualquer Windows (sem necessidade de Python instalado)
 
@@ -256,7 +271,9 @@ Um arquivo `organizer.log` é criado automaticamente:
 ## 🔧 Customizações
 
 ### **Adicionar Nova Categoria**
+
 Editar `config.json`:
+
 ```json
 {
   "categories": {
@@ -269,15 +286,17 @@ Editar `config.json`:
 ```
 
 ### **Mudar Estratégia de Duplicados**
+
 ```json
 {
   "options": {
-    "handle_duplicates": "skip"  // ou "rename", "overwrite"
+    "handle_duplicates": "skip" // ou "rename", "overwrite"
   }
 }
 ```
 
 ### **Aumentar Detalhes de Log**
+
 ```json
 {
   "logging": {
@@ -310,7 +329,6 @@ Para dúvidas ou bugs, verifique o arquivo `organizer.log` para detalhes complet
 
 ---
 
-**Versão:** 1.0.0  
-**Última atualização:** 26 de abril de 2026  
+**Versão:** 1.1.0  
+**Última atualização:** 3 de maio de 2026  
 **Status:** ✅ Pronto para produção
-
