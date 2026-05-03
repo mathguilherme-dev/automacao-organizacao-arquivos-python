@@ -7,6 +7,7 @@ Este módulo fornece a interface de linha de comando para organizar arquivos.
 
 import argparse
 import logging
+import sys
 from pathlib import Path
 from tkinter import Tk, filedialog
 
@@ -129,4 +130,4 @@ def main() -> int:
 
 
 if __name__ == "__main__":
-    exit(main())
+    sys.exit(main())
