@@ -1,72 +1,51 @@
 {
   "categories": {
     "Imagens": {
-      "extensions": [".jpg", ".jpeg", ".png", ".gif", ".bmp", ".svg", ".ico"],
+      "extensions": [".jpg", ".jpeg", ".png", ".gif", ".bmp", ".svg", ".ico", ".webp", ".tiff", ".tif", ".psd", ".ai", ".eps", ".raw", ".cr2", ".nef", ".orf", ".sr2", ".heic"],
       "create_if_missing": true
     },
     "Documentos": {
-      "extensions": [".pdf", ".txt", ".docx", ".xlsx", ".pptx", ".odt"],
+      "extensions": [".pdf", ".txt", ".docx", ".doc", ".pptx", ".ppt", ".pps", ".ppsx", ".odt", ".rtf", ".dot", ".dotx", ".md", ".epub", ".mobi", ".wpd", ".wps", ".pages", ".key", ".numbers"],
       "create_if_missing": true
     },
     "Planilhas": {
-      "extensions": [".csv", ".xlsm"],
+      "extensions": [".xlsx", ".xls", ".xlsm", ".xlt", ".xltx", ".csv", ".ods", ".ots", ".wks", ".wk1", ".wk3", ".wk4", ".123", ".dbf", ".gnumeric", ".qpw", ".xlw"],
       "create_if_missing": true
     },
     "Videos": {
-      "extensions": [".mp4", ".avi", ".mkv", ".mov", ".flv"],
+      "extensions": [".mp4", ".avi", ".mkv", ".mov", ".flv", ".wmv", ".rmvb", ".rm", ".mpg", ".mpeg", ".m4v", ".vob", ".3gp", ".webm", ".ts", ".asf"],
       "create_if_missing": true
     },
     "Audio": {
-      "extensions": [".mp3", ".wav", ".flac", ".aac", ".m4a"],
+      "extensions": [".mp3", ".wav", ".flac", ".aac", ".m4a", ".wma", ".ogg", ".mid", ".midi", ".amr", ".aiff", ".au", ".alac", ".ape"],
       "create_if_missing": true
     },
     "Compactados": {
-      "extensions": [".zip", ".rar", ".7z", ".tar", ".gz"],
+      "extensions": [".zip", ".rar", ".7z", ".tar", ".gz", ".arj", ".bz2", ".cab", ".tgz", ".z", ".lz", ".lzh"],
       "create_if_missing": true
     },
     "Executáveis": {
-      "extensions": [".exe", ".msi", ".app", ".deb", ".apk"],
+      "extensions": [".exe", ".msi", ".app", ".deb", ".apk", ".bat", ".cmd", ".sh", ".bin", ".run"],
       "create_if_missing": true
     },
     "Código": {
-      "extensions": [
-        ".py",
-        ".js",
-        ".java",
-        ".cpp",
-        ".c",
-        ".ts",
-        ".go",
-        ".rb",
-        ".php",
-        ".html",
-        ".css"
-      ],
+      "extensions": [".py", ".js", ".java", ".cpp", ".c", ".ts", ".go", ".rb", ".php", ".html", ".css", ".htm", ".scss", ".less", ".cs", ".swift", ".kt", ".rs", ".pl", ".sh"],
       "create_if_missing": true
     },
     "Dados": {
-      "extensions": [
-        ".json",
-        ".xml",
-        ".sql",
-        ".db",
-        ".yml",
-        ".yaml",
-        ".ini",
-        ".conf"
-      ],
+      "extensions": [".json", ".xml", ".sql", ".db", ".yml", ".yaml", ".ini", ".conf", ".sqlite", ".sqlite3", ".mdb", ".accdb"],
       "create_if_missing": true
     },
     "Fontes": {
-      "extensions": [".ttf", ".otf", ".woff", ".woff2"],
+      "extensions": [".ttf", ".otf", ".woff", ".woff2", ".eot", ".fon", ".fnt"],
       "create_if_missing": true
     },
     "Discos": {
-      "extensions": [".iso", ".dmg", ".img"],
+      "extensions": [".iso", ".dmg", ".img", ".vhd", ".vmdk", ".ova", ".bin", ".cue"],
       "create_if_missing": true
     },
     "Outros": {
-      "extensions": [".exe", ".msi", ".winmd", ".dll", ".sys"],
+      "extensions": [".winmd", ".dll", ".sys", ".tmp", ".bak", ".log", ".crdownload", ".part", ".torrent"],
       "create_if_missing": true
     }
   },

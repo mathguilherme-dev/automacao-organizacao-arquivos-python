@@ -4,8 +4,9 @@ Um sistema modular, robusto e pronto para produção que automatiza a organizaç
 
 ## 📌 Características Principais
 
+✅ **Funciona SEM arquivo JSON** - Usa configurações padrão automáticas, JSON opcional para customização  
 ✅ **Arquitetura Modular** - Componentes bem separados: `config`, `organizer`, `cli`, `utils`  
-✅ **Totalmente Configurável** - Arquivo `config.json` com categorias e extensões personalizáveis  
+✅ **Totalmente Configurável** - Arquivo `config.json` opcional com categorias e extensões personalizáveis  
 ✅ **3 Estratégias de Duplicados** - Skip (pula), Rename (renomeia), Overwrite (sobrescreve)  
 ✅ **Sistema de Logging Robusto** - Logs em arquivo + console com níveis configuráveis  
 ✅ **Modo Simulação (Dry-Run)** - Teste operações sem realmente mover arquivos  
@@ -39,7 +40,7 @@ python -m organizador ./arquivos --verbose
 # Com simulação + detalhes
 python -m organizador ./arquivos --dry-run --verbose
 
-# Com arquivo config customizado
+# Com arquivo config customizado (opcional)
 python -m organizador ./arquivos --config meu_config.json
 
 # Ver versão

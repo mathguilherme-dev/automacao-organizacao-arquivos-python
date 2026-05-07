@@ -2,13 +2,16 @@
 Módulo responsável pelo carregamento e validação de configurações.
 
 Este módulo fornece a classe ConfigLoader que lê o arquivo de configuração
-JSON e o valida contra um esquema esperado.
+JSON e o valida contra um esquema esperado. Se não houver arquivo JSON,
+usa as configurações padrão do módulo categories.
 """
 
 import json
 import logging
 from pathlib import Path
 from typing import Any, Dict, Optional
+
+from .categories import DEFAULT_CONFIG
 
 logger = logging.getLogger(__name__)
 
@@ -26,15 +29,29 @@ class ConfigLoader:
         Args:
             config_path: Caminho do arquivo de configuração.
                         Se None, procura no diretório do módulo.
-
-        Raises:
-            FileNotFoundError: Se o arquivo de configuração não existir.
         """
         self.config_path = self._resolve_config_path(config_path)
-        if not self.config_path.exists():
-            raise FileNotFoundError(
-                f"Arquivo de configuração não encontrado: {self.config_path}"
-            )
+
+    def _resolve_config_path(
+        self, config_path: Optional[Path | str]
+    ) -> Path:
+        """
+        Resolve o caminho da configuração.
+
+        Args:
+            config_path: Caminho fornecido ou None.
+
+        Returns:
+            Path: Caminho resolvido da configuração.
+        """
+        if config_path is not None:
+            return Path(config_path)
+
+        # Procura no diretório do módulo
+        module_dir = Path(__file__).parent
+        default_path = module_dir / self.DEFAULT_CONFIG_NAME
+
+        return default_path
 
     def _resolve_config_path(
         self, config_path: Optional[Path | str]
@@ -61,17 +78,45 @@ class ConfigLoader:
         # Fallback para diretório atual
         return Path(self.DEFAULT_CONFIG_NAME)
 
-    def load(self) -> Dict[str, Any]:
+    def load_config(self) -> Dict[str, Any]:
         """
-        Carrega o arquivo de configuração.
+        Carrega a configuração, usando JSON se existir, senão padrão.
 
         Returns:
-            Dict: Configuração carregada.
+            Dict: Configuração carregada (padrão ou JSON).
+        """
+        if self.config_path.exists():
+            try:
+                config = self.load()
+                logger.info(f"Configuração carregada do arquivo: {self.config_path}")
+                return config
+            except (json.JSONDecodeError, ValueError) as e:
+                logger.warning(
+                    f"Erro ao carregar configuração JSON ({e}), "
+                    "usando configuração padrão"
+                )
+                return DEFAULT_CONFIG.copy()
+        else:
+            logger.info("Arquivo de configuração não encontrado, usando padrão")
+            return DEFAULT_CONFIG.copy()
+
+    def load(self) -> Dict[str, Any]:
+        """
+        Carrega o arquivo de configuração JSON (se existir).
+
+        Returns:
+            Dict: Configuração carregada do JSON.
 
         Raises:
+            FileNotFoundError: Se o arquivo JSON não existir.
             json.JSONDecodeError: Se o JSON for inválido.
             ValueError: Se a configuração não for válida.
         """
+        if not self.config_path.exists():
+            raise FileNotFoundError(
+                f"Arquivo de configuração não encontrado: {self.config_path}"
+            )
+
         try:
             with open(self.config_path, "r", encoding="utf-8") as f:
                 config = json.load(f)

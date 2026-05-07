@@ -47,15 +47,12 @@ class FileOrganizer:
 
         Args:
             source_path: Caminho da pasta a organizar.
-            config_path: Caminho do arquivo de configuração.
+            config_path: Caminho do arquivo de configuração (opcional).
             verbose: Se True, exibe logs de debug.
-
-        Raises:
-            FileNotFoundError: Se o arquivo de configuração não existir.
         """
         self.source_path = Path(source_path)
         self.config_loader = ConfigLoader(config_path)
-        self.config = self.config_loader.load()
+        self.config = self.config_loader.load_config()
         self.stats = OrganizationStats()
         self._setup_logging(verbose)
 

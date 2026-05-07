@@ -130,4 +130,7 @@ def main() -> int:
 
 
 if __name__ == "__main__":
-    sys.exit(main())
+    exit_code = main()
+    print("\n✅ Processo finalizado!")
+    input("Pressione ENTER para fechar esta janela...")
+    sys.exit(exit_code)

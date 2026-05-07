@@ -23,12 +23,13 @@ class TestConfigLoaderInitialization:
         loader = ConfigLoader(config_file)
         assert loader.config_path == config_file
 
-    def test_initialization_with_nonexistent_file_raises_error(
+    def test_initialization_with_nonexistent_file_does_not_raise_error(
         self,
     ) -> None:
-        """Deve lançar erro se arquivo não existir."""
-        with pytest.raises(FileNotFoundError):
-            ConfigLoader("/inexistente/config.json")
+        """Não deve lançar erro se arquivo não existir (usa padrão)."""
+        loader = ConfigLoader("/inexistente/config.json")
+        # Não deve lançar erro no __init__
+        assert loader.config_path == Path("/inexistente/config.json")
 
 
 class TestConfigLoading:
@@ -247,6 +248,44 @@ def test_extension_validation(
     else:
         config = loader.load()
         assert config is not None
+
+
+class TestConfigLoadingWithDefaults:
+    """Testes de carregamento com configurações padrão."""
+
+    def test_load_config_uses_default_when_no_file(self) -> None:
+        """Deve usar configuração padrão quando arquivo não existe."""
+        loader = ConfigLoader("/inexistente/config.json")
+        config = loader.load_config()
+
+        assert isinstance(config, dict)
+        assert "categories" in config
+        assert "Planilhas" in config["categories"]
+        assert ".xls" in config["categories"]["Planilhas"]["extensions"]
+
+    def test_load_config_uses_json_when_file_exists(self, config_file: Path) -> None:
+        """Deve usar arquivo JSON quando existir."""
+        loader = ConfigLoader(config_file)
+        config = loader.load_config()
+
+        assert isinstance(config, dict)
+        assert "categories" in config
+        assert "options" in config
+
+    def test_load_config_falls_back_to_default_on_invalid_json(
+        self, tmp_path: Path
+    ) -> None:
+        """Deve usar padrão quando JSON é inválido."""
+        invalid_file = tmp_path / "invalid.json"
+        invalid_file.write_text("{invalid json content")
+
+        loader = ConfigLoader(invalid_file)
+        config = loader.load_config()
+
+        # Deve retornar configuração padrão
+        assert isinstance(config, dict)
+        assert "categories" in config
+        assert "Planilhas" in config["categories"]
 
 
 class TestConfigResolution:

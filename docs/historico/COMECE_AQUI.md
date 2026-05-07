@@ -5,33 +5,38 @@
 Um **sistema profissional, modular e pronto para produção** que:
 
 ✅ **Organiza automaticamente** arquivos em 9 categorias diferentes  
+✅ **Funciona SEM precisar de arquivo JSON** - usa configurações padrão automáticas  
 ✅ **Trata duplicados** de 3 formas diferentes (skip/rename/overwrite)  
 ✅ **Funciona via linha de comando** com interface intuitiva  
 ✅ **Pode ser simulado** com --dry-run antes de executar  
 ✅ **Mostra detalhes** com --verbose se necessário  
 ✅ **Registra tudo** em arquivo de log  
 ✅ **Foi testado** com 9 testes unitários (todos passando)  
-✅ **Pode virar .exe** para levar em qualquer PC  
+✅ **Pode virar .exe** para levar em qualquer PC
 
 ---
 
 ## 📋 Arquivos Criados/Modificados
 
 ### Código Principal
+
 - ✅ `organizador/organizer.py` - 440+ linhas com tratamento completo
 - ✅ `organizador/cli.py` - Interface profissional com argparse
 - ✅ `organizador/logger.py` - Logging para arquivo e console
 - ✅ `organizador/__main__.py` - Permite executar como módulo
-- ✅ `organizador/config.json` - 9 categorias + 3 estratégias
+- ✅ `organizador/categories.py` - **NOVO:** Configurações padrão hardcoded
+- ✅ `organizador/config.json` - **OPCIONAL:** Override das configurações padrão
 - ✅ `organizador/tests/test_organizer.py` - 9 testes completos
 
 ### Documentação
+
 - ✅ `README.md` - Guia completo (100+ linhas)
 - ✅ `QUICKSTART.md` - Início rápido para iniciantes
 - ✅ `GUIA_EMPACOTAMENTO.md` - Como gerar .exe
 - ✅ `VISAO_GERAL.md` - Visão técnica do projeto
 
 ### Empacotamento
+
 - ✅ `setup.py` - Para instalação profissional
 - ✅ `requirements.txt` - Dependências
 - ✅ `build_exe.bat` - Script Windows para gerar .exe
@@ -39,6 +44,7 @@ Um **sistema profissional, modular e pronto para produção** que:
 - ✅ `.gitignore` - Para versionamento Git
 
 ### Removido
+
 - ❌ `organizador.py` - Script legado desnecessário
 
 ---
@@ -46,16 +52,19 @@ Um **sistema profissional, modular e pronto para produção** que:
 ## 🎯 3 Maneiras de Usar
 
 ### **Opção 1: Como módulo Python (mais fácil)**
+
 ```bash
 python -m organizador ./seus_arquivos
 ```
 
 ### **Opção 2: Com simulação (mais seguro)**
+
 ```bash
 python -m organizador ./seus_arquivos --dry-run
 ```
 
 ### **Opção 3: Como executável (mais portável)**
+
 ```bash
 build_exe.bat              # Gera .exe
 dist\organizador.exe ./seus_arquivos
@@ -66,6 +75,7 @@ dist\organizador.exe ./seus_arquivos
 ## 📊 Validação Completa
 
 ✅ **9 testes unitários** - 100% passando
+
 - Organização básica
 - Modo dry-run
 - Duplicados (skip/rename/overwrite)
@@ -73,6 +83,7 @@ dist\organizador.exe ./seus_arquivos
 - Estatísticas
 
 ✅ **Testes manuais** - Todos validados
+
 - Criação automática de pastas
 - Movimento de arquivos
 - Tratamento de duplicados com rename
@@ -97,16 +108,19 @@ dist\organizador.exe ./seus_arquivos
 ## 🚀 Próximos Passos
 
 ### **Agora (hoje):**
+
 1. ✅ Código pronto para usar
 2. ✅ Testes passando
 3. ✅ Documentação completa
 
 ### **Próximo (esta semana):**
+
 1. Gerar .exe: `build_exe.bat`
 2. Testar em outro computador
 3. Compartilhar com colegas
 
 ### **Futuro (opcional):**
+
 1. Fazer upload para GitHub
 2. Adicionar interface gráfica (GUI)
 3. Adicionar sincronização em tempo real (watchdog)
@@ -125,7 +139,7 @@ Como um **profissional**, você agora sabe:
 ✅ Como escrever **documentação clara**  
 ✅ Como **empacotar como executável**  
 ✅ Como **tratar exceções** adequadamente  
-✅ Como usar **configuração externa** (JSON)  
+✅ Como usar **configuração externa** (JSON)
 
 **Tudo isso em um projeto real!** 🚀
 
@@ -164,7 +178,7 @@ Como um **profissional**, você agora sabe:
 ✅ Explicar para outras pessoas  
 ✅ Modificar e estender o código  
 ✅ Empacotar como .exe e distribuir  
-✅ Usar como template para outros projetos  
+✅ Usar como template para outros projetos
 
 ---
 
@@ -177,6 +191,7 @@ Aproveite!
 ---
 
 **Precisa de ajuda?** Veja:
+
 - `QUICKSTART.md` - Para usar rápido
 - `README.md` - Para entender tudo
 - `GUIA_EMPACOTAMENTO.md` - Para gerar .exe

@@ -26,15 +26,18 @@ class TestFileOrganizerInitialization:
         assert organizer.source_path == temp_workspace
         assert organizer.config is not None
 
-    def test_initialization_with_invalid_path_raises_error(
-        self, config_file: Path
+    def test_initialization_with_invalid_config_uses_defaults(
+        self, temp_workspace: Path
     ) -> None:
-        """Deve lançar erro se a configuração não existir."""
-        with pytest.raises(FileNotFoundError):
-            FileOrganizer(
-                source_path="/inexistente/path",
-                config_path="/inexistente/config.json",
-            )
+        """Deve usar configurações padrão se config não existir."""
+        organizer = FileOrganizer(
+            source_path=temp_workspace,
+            config_path="/inexistente/config.json",
+        )
+        # Não deve lançar erro, deve usar configurações padrão
+        assert organizer.config is not None
+        assert "categories" in organizer.config
+        assert "Planilhas" in organizer.config["categories"]
 
     def test_initialization_sets_logging_level(
         self, temp_workspace: Path, config_file: Path
